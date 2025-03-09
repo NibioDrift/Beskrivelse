@@ -3,19 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Velkommen</title>
+    <title>Velg PDF</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
+        #valgContainer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #pdfValg {
+            font-size: 1.2em;
+            padding: 10px;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            background-color: #f8f9fa;
         }
         h1 {
-            color: #333;
+            color: #007BFF;
         }
     </style>
+    <script>
+        function visPDF() {
+            var valgtFil = document.getElementById("pdfValg").value;
+            document.getElementById("pdfViewer").src = valgtFil;
+        }
+    </script>
 </head>
 <body>
-    <h1>Dette er en test hjemmeside</h1>
+    <div id="valgContainer">
+        <h1>Velg en PDF-fil:</h1>
+        <select id="pdfValg" onchange="visPDF()">
+        <option value="manualer/Akvaponi.pdf">Akvaponi</option>
+	<option value="manualer/sportsgras.pdf">Sportsgras</option>
+	<option value="felthandbok.pdf.pdf">Felthåndbok</option>
+            
+        </select>
+    </div>
+    <br>
+    <embed id="pdfViewer" src="manualer/sportsgras.pdf" type="application/pdf" width="100%" height="600vh">
 </body>
 </html>
